@@ -48,7 +48,7 @@ export const routes: Routes = [
       },
       {
         path: 'projects/:projectId',
-        loadComponent: () => import('./pages/project/project').then((m) => m.Project),
+        loadComponent: () => import('./pages/project/project').then((m) => m.ProjectComponent),
       },
     ],
   },

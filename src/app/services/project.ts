@@ -2,7 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environment/environment';
-import { CreateProjectPayload, ProjectListResponse, ProjectResponse } from '../types/project';
+import {
+  CreateProjectPayload,
+  Project,
+  ProjectListResponse,
+  ProjectResponse,
+} from '../types/project';
 
 @Injectable({
   providedIn: 'root',
@@ -17,5 +22,9 @@ export class ProjectService {
 
   getProjects(workspaceId: string): Observable<ProjectListResponse> {
     return this.http.get<ProjectListResponse>(`${this.API_URL}/${workspaceId}`);
+  }
+
+  getProjectById(projectId: string): Observable<Project> {
+    return this.http.get<Project>(`${this.API_URL}/${projectId}`);
   }
 }
